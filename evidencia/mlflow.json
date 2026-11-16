@@ -5,13 +5,13 @@
       "name": "novamercado-pronostico",
       "artifact_location": "mlflow-artifacts:/1",
       "lifecycle_stage": "active",
-      "last_update_time": 1794799712825,
-      "creation_time": 1794799712825
+      "last_update_time": 1794801429473,
+      "creation_time": 1794801429473
     }
   },
   "runs": [
     {
-      "run_id": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "run_id": "92cdbb7d9f784dfeb951666c55d1fb50",
       "nombre": "arranque-2026-02-28",
       "estado": "FINISHED",
       "padre": null,
@@ -30,10 +30,10 @@
       }
     },
     {
-      "run_id": "6e44bde550ad4a9cbcf79c33ccf155e6",
+      "run_id": "5a2675636b04464ab01c308ce5d66f88",
       "nombre": "candidato-baseline",
       "estado": "FINISHED",
-      "padre": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "padre": "92cdbb7d9f784dfeb951666c55d1fb50",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -49,10 +49,10 @@
       }
     },
     {
-      "run_id": "92e319d96d434562a23dc55a24dc6ae7",
+      "run_id": "07d000b5e5a74e75b007f75cc56aee63",
       "nombre": "candidato-lgbm",
       "estado": "FINISHED",
-      "padre": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "padre": "92cdbb7d9f784dfeb951666c55d1fb50",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -68,7 +68,7 @@
       }
     },
     {
-      "run_id": "0f2fdcb701264671a3ea354c83c8f594",
+      "run_id": "ac534706c98d49d09ed8f901617bdb7c",
       "nombre": "airflow-2026-03-06",
       "estado": "FINISHED",
       "padre": null,
@@ -94,10 +94,10 @@
       }
     },
     {
-      "run_id": "4aadd7780d914ff19221db2862f7b3d9",
+      "run_id": "91183ec8511b478a8c6e7f09fe871a75",
       "nombre": "candidato-baseline",
       "estado": "FINISHED",
-      "padre": "0f2fdcb701264671a3ea354c83c8f594",
+      "padre": "ac534706c98d49d09ed8f901617bdb7c",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -113,10 +113,10 @@
       }
     },
     {
-      "run_id": "746641d15f8b4b1eb609495a3f855054",
+      "run_id": "b4c562676aaa4c9a90f40de35b965b59",
       "nombre": "candidato-lgbm",
       "estado": "FINISHED",
-      "padre": "0f2fdcb701264671a3ea354c83c8f594",
+      "padre": "ac534706c98d49d09ed8f901617bdb7c",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -132,7 +132,7 @@
       }
     },
     {
-      "run_id": "33c8725f1858440a8772d5da081d0e70",
+      "run_id": "b63d9769289e4f2192d2eb496ed5648b",
       "nombre": "airflow-2026-03-13",
       "estado": "FINISHED",
       "padre": null,
@@ -158,10 +158,10 @@
       }
     },
     {
-      "run_id": "a08356db07b9427cb6a67573a9c27fca",
+      "run_id": "311f9034a2ac44e591086cb6108ced1b",
       "nombre": "candidato-baseline",
       "estado": "FINISHED",
-      "padre": "33c8725f1858440a8772d5da081d0e70",
+      "padre": "b63d9769289e4f2192d2eb496ed5648b",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -177,10 +177,10 @@
       }
     },
     {
-      "run_id": "d8f4fe76329147d5b29dfd1367ddb0a5",
+      "run_id": "4a095a46ebba4e06ad4dbf0c51236edc",
       "nombre": "candidato-lgbm",
       "estado": "FINISHED",
-      "padre": "33c8725f1858440a8772d5da081d0e70",
+      "padre": "b63d9769289e4f2192d2eb496ed5648b",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -196,7 +196,7 @@
       }
     },
     {
-      "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+      "run_id": "b3c8fc4563d840528f1cd89c77766882",
       "nombre": "airflow-2026-03-20",
       "estado": "FINISHED",
       "padre": null,
@@ -222,10 +222,10 @@
       }
     },
     {
-      "run_id": "a867c1117fcf4539be0b55a9878a7f3e",
+      "run_id": "afa2b97cf8cd47619641dd5527e4f0c5",
       "nombre": "candidato-baseline",
       "estado": "FINISHED",
-      "padre": "f85d08393b034e4c93f4aff8dc5c227b",
+      "padre": "b3c8fc4563d840528f1cd89c77766882",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -241,10 +241,10 @@
       }
     },
     {
-      "run_id": "fa8b91e2069f41b799781a9657169bbc",
+      "run_id": "5415af8f05634979a9c1900534c13b16",
       "nombre": "candidato-lgbm",
       "estado": "FINISHED",
-      "padre": "f85d08393b034e4c93f4aff8dc5c227b",
+      "padre": "b3c8fc4563d840528f1cd89c77766882",
       "decision": null,
       "version_registrada": null,
       "origen": null,
@@ -264,12 +264,12 @@
     {
       "name": "novamercado-ventas",
       "version": "2",
-      "creation_timestamp": 1794799805194,
-      "last_updated_timestamp": 1794799805209,
+      "creation_timestamp": 1794801521551,
+      "last_updated_timestamp": 1794801521563,
       "current_stage": "None",
       "description": "lgbm; datos hasta 2026-03-20; costo en evaluación 48842.1",
-      "source": "mlflow-artifacts:/1/f85d08393b034e4c93f4aff8dc5c227b/artifacts/modelo",
-      "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+      "source": "mlflow-artifacts:/1/b3c8fc4563d840528f1cd89c77766882/artifacts/modelo",
+      "run_id": "b3c8fc4563d840528f1cd89c77766882",
       "status": "READY",
       "tags": [
         {
@@ -286,12 +286,12 @@
     {
       "name": "novamercado-ventas",
       "version": "1",
-      "creation_timestamp": 1794799713196,
-      "last_updated_timestamp": 1794799713220,
+      "creation_timestamp": 1794801429837,
+      "last_updated_timestamp": 1794801429859,
       "current_stage": "None",
       "description": "lgbm; datos hasta 2026-02-28; costo en evaluación 44823.8",
-      "source": "mlflow-artifacts:/1/5b3fdb77fb924e8d8c3df4b4a72c26f4/artifacts/modelo",
-      "run_id": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "source": "mlflow-artifacts:/1/92cdbb7d9f784dfeb951666c55d1fb50/artifacts/modelo",
+      "run_id": "92cdbb7d9f784dfeb951666c55d1fb50",
       "status": "READY",
       "tags": [
         {
@@ -309,18 +309,18 @@
   "modelo_registrado": {
     "registered_model": {
       "name": "novamercado-ventas",
-      "creation_timestamp": 1794799713167,
-      "last_updated_timestamp": 1794799805194,
+      "creation_timestamp": 1794801429817,
+      "last_updated_timestamp": 1794801521551,
       "latest_versions": [
         {
           "name": "novamercado-ventas",
           "version": "2",
-          "creation_timestamp": 1794799805194,
-          "last_updated_timestamp": 1794799805209,
+          "creation_timestamp": 1794801521551,
+          "last_updated_timestamp": 1794801521563,
           "current_stage": "None",
           "description": "lgbm; datos hasta 2026-03-20; costo en evaluación 48842.1",
-          "source": "mlflow-artifacts:/1/f85d08393b034e4c93f4aff8dc5c227b/artifacts/modelo",
-          "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+          "source": "mlflow-artifacts:/1/b3c8fc4563d840528f1cd89c77766882/artifacts/modelo",
+          "run_id": "b3c8fc4563d840528f1cd89c77766882",
           "status": "READY",
           "tags": [
             {

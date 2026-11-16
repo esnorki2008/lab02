@@ -127,6 +127,20 @@ def ciclo(settings: Settings, repo, registro, *, origen: str, ejecucion: str | N
     en_c = (X["fecha"] >= c_ini) & (X["fecha"] < e_ini)
     en_e = X["fecha"] >= e_ini
     X_e = X[en_e]
+    # Evidencia suficiente: no basta con días, la ventana E debe estar razonablemente cubierta de datos.
+    activas = X.loc[(X["fecha"] < e_ini) & (X["fecha"] >= e_ini - timedelta(days=28)), ["tienda_id", "familia_id"]]
+    esperados = len(activas.drop_duplicates()) * max(dias_e, 0)
+    cobertura = len(X_e) / esperados if esperados else 0.0
+    resumen.update(puntos_evaluacion=int(len(X_e)), cobertura_evaluacion=round(cobertura, 3))
+    min_cob = float(p_mod.get("cobertura_minima_evaluacion", 0.5))
+    min_pts = int(p_mod.get("puntos_minimos_evaluacion", 200))
+    if modelo_vigente is not None and (cobertura < min_cob or len(X_e) < min_pts):
+        motivo = (f"Evidencia insuficiente en la ventana de evaluación: {len(X_e)} puntos ({cobertura:.0%} de "
+                  f"los esperados; mínimo {min_cob:.0%} y {min_pts} puntos); se conserva la versión "
+                  f"{version_vigente}")
+        resumen.update(promovido=False, version=version_vigente, motivo=motivo, segundos=round(time.time() - t0, 1))
+        registro.publicar_ciclo(resumen, [], None, False)
+        return resumen
     seed = int(p_mod["lgbm"].get("seed", 11))
     candidatos = []
     for tipo in p_mod["candidatos"]:

@@ -169,8 +169,11 @@ dentro de ±1 % de costo de la configuración elegida, por lo que se mantuvo la 
 * **Criterio explícito y automático** (`reemplazo` en `params.yaml`): el mejor candidato reemplaza al
   vigente si su **costo de negocio en `E` es al menos 1 % menor** y su **WAPE no empeora más de 5 %**
   relativo. El WAPE es una salvaguarda contra modelos que “ganan” costo sólo inflando la cantidad.
-* **Evidencia mínima**: si `E` tiene menos de 5 días (el vigente se entrenó hace muy poco) no se compara y se
-  conserva el vigente, con ese motivo.
+* **Evidencia mínima**: si `E` tiene menos de 5 días (el vigente se entrenó hace muy poco), o si tiene menos del
+  50 % de los puntos esperados (series activas × días) o menos de 200 puntos, no se compara y se conserva el
+  vigente, con ese motivo. La segunda condición se agregó tras un caso real en desarrollo: unas pocas
+  observaciones sueltas de prueba en fechas futuras crearon una ventana `E` con 25 puntos y se promovió un
+  baseline con métricas sin sentido (WAPE 2.2). Contar días no basta; hay que contar datos.
 * **Si se promueve**, el candidato se re-entrena con todos los datos (≤ fin) y se calibra con sus
   predicciones fuera de muestra de `C` ∪ `E`. Se registra en MLflow y **el alias `champion` se mueve al
   final**: cualquier falla antes (incluida MLflow caído) deja intacto al vigente y la ejecución queda

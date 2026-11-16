@@ -83,3 +83,22 @@ def test_fallo_al_registrar_no_cambia_el_vigente(settings, repo_base):
     with pytest.raises(RuntimeError):
         ciclo(settings, repo_base, reg, origen="pruebas")
     assert reg.vigente_version is None
+
+
+def test_observaciones_sueltas_no_bastan_para_reemplazar(settings, tmp_path, modelo_entrenado):
+    """Pocas observaciones dispersas en fechas futuras no deben promover un modelo (caso real de desarrollo)."""
+    from datetime import date
+
+    from conftest import nuevo_repo
+    from novamercado.limpieza.reporte import ReporteCalidad
+    from novamercado.schemas import ObservacionLimpia, VentaObservada
+
+    repo = nuevo_repo(settings, tmp_path / "sueltas.db")
+    for d in (date(2025, 3, 20), date(2025, 3, 25), date(2025, 3, 30)):
+        repo.guardar_observaciones({}, ObservacionLimpia(tienda_id=1, fecha=d, ventas=[
+            VentaObservada(familia_id="abarrotes", ventas=999)]), ReporteCalidad())
+    reg = RegistroMemoria()
+    reg.versiones["1"] = modelo_entrenado[0]
+    reg.vigente_version = "1"
+    r = ciclo(settings, repo, reg, origen="pruebas")
+    assert r["promovido"] is False and r["version"] == "1" and "insuficiente" in r["motivo"].lower()

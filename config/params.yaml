@@ -42,6 +42,8 @@ modelo:
   dias_evaluacion: 14               # ventana máxima de evaluación fuera de muestra (días más recientes)
   dias_calibracion: 28              # ventana previa para calibrar la cantidad sugerida
   dias_minimos_evaluacion: 5        # datos nuevos mínimos para comparar contra el vigente
+  cobertura_minima_evaluacion: 0.5  # fracción mínima de (series activas × días) con dato en la ventana E
+  puntos_minimos_evaluacion: 200    # y número mínimo de puntos tienda-familia-día en E
   frac_rezagos_faltantes: 0.10      # entrenar con rezagos recientes ocultos (observación no llegó)
   lgbm:
     n_estimators: 500

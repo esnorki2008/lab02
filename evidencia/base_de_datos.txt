@@ -2,7 +2,7 @@
 ------------------+-------
  solicitudes      |   614
  predicciones     |  3480
- correcciones     |   269
+ correcciones     |   275
  observaciones    |  3201
  reentrenamientos |     4
  historico_ventas | 83052
@@ -23,6 +23,7 @@
  tienda_formato             | reparar  |    15
  promocion_decimal          | advertir |    13
  familia_aproximada         | advertir |     8
+ historia_desactualizada    | advertir |     6
  fecha_ambigua              | advertir |     5
-(13 rows)
+(14 rows)
 

@@ -14,10 +14,11 @@ con los datos publicados en `raw_data/`, usando los scripts de `scripts/`.
 | `mlflow.json` | Experimento, *runs* (ciclos y candidatos anidados con métricas y decisión), versiones registradas y alias. |
 | `airflow_dag_runs.json` | Ejecuciones del DAG `novamercado_reentrenamiento` y el estado de cada tarea. |
 | `base_de_datos.txt` | Conteo de registros por tabla y correcciones aplicadas por regla. |
+| `capturas/` | Capturas de pantalla de MLflow, Airflow y la API (Swagger) — índice en `capturas/README.md`. |
 
 ## Resultados principales
 
-**Arranque desde cero**: `/health` = `ok` 31 s después de `docker compose up` (límite: 10 min). El primer
+**Arranque desde cero**: `/health` = `ok` 33 s después de `docker compose up` (límite: 10 min). El primer
 modelo (LightGBM) se entrena y registra solo como versión 1.
 
 **Operación simulada (28 días, 10 tiendas, reentrenamiento cada 7 días)**
@@ -28,7 +29,7 @@ modelo (LightGBM) se entrena y registra solo como versión 1.
 | Sugerir la venta esperada (sin newsvendor) | 122 004 |
 | Ingenua: lo vendido hace 7 días | 177 465 |
 
-WAPE 0.19 · latencia de `/v1/prediccion` p50 126 ms / p95 184 ms.
+WAPE 0.19 · latencia de `/v1/prediccion` p50 121 ms / p95 174 ms.
 
 | Reentrenamiento | Resultado | Duración |
 |---|---|---|
@@ -40,11 +41,9 @@ WAPE 0.19 · latencia de `/v1/prediccion` p50 126 ms / p95 184 ms.
 
 | Escenario | Resultado |
 |---|---|
-| MLflow detenido | `/health` = `degradado` en 7.8 s (límite 1 min); `/v1/prediccion` sigue respondiendo 200 con la v2 |
+| MLflow detenido | `/health` = `degradado` en 8 s (límite 1 min); `/v1/prediccion` sigue respondiendo 200 con la v2 |
 | Reentrenamiento con MLflow caído | `fallido`, `promovido=false`, `version` = 2 (el vigente no cambia) |
 | API reiniciada con MLflow caído | carga la v2 desde la caché local en 2 s y responde |
 | MLflow regresa | `/health` = `ok` en 6 s (límite 2 min) |
-| `docker compose down` + `up` (sin `-v`) | `ok` en 25 s, misma versión, reenvío de una observación → `registros_guardados = 0`; el arranque no recarga datos ni reentrena |
+| `docker compose down` + `up` (sin `-v`) | `ok` en 30 s, misma versión, reenvío de una observación → `registros_guardados = 0`; el arranque no recarga datos ni reentrena |
 
-Las capturas de pantalla de las UIs (MLflow en <http://localhost:5000>, Airflow en <http://localhost:8080>)
-muestran la misma información que `mlflow.json` y `airflow_dag_runs.json`.

@@ -32,6 +32,13 @@ EJEMPLO_PREDICCION = {"tienda_id": 5, "fecha": "2025-11-17",
                                    {"familia_id": "bebidas", "en_promocion": 8}]}
 EJEMPLO_OBSERVACION = {"tienda_id": 5, "fecha": "2025-11-17", "ventas": [{"familia_id": "abarrotes", "ventas": 994}]}
 ESTADOS_AIRFLOW_FALLA = {"failed"}
+RESPUESTAS_ERROR = {
+    422: {"description": "Rechazo: la solicitud no se puede atender sin inventar datos (campo `detail`)",
+          "content": {"application/json": {"example": {"detail": "Tienda desconocida: la tienda 42 no existe en el "
+                                                                 "catálogo", "regla": "tienda_desconocida",
+                                                       "campo": "tienda_id"}}}},
+    503: {"description": "Sin modelo cargado o dependencia no disponible (campo `detail`)"},
+}
 
 
 @dataclass
@@ -86,7 +93,7 @@ def crear_app(s: Servicios, on_startup=None, on_shutdown=None) -> FastAPI:
             log.warning("No se pudo registrar el rechazo en la base de datos")
 
     # -------------------------------------------------------------------------------------- pronóstico
-    @app.post("/v1/prediccion", response_model=RespuestaPrediccion, tags=["servicio"],
+    @app.post("/v1/prediccion", response_model=RespuestaPrediccion, tags=["servicio"], responses=RESPUESTAS_ERROR,
               openapi_extra={"requestBody": {"content": {"application/json": {"example": EJEMPLO_PREDICCION}}}})
     async def prediccion(request: Request):
         payload = None
@@ -103,6 +110,7 @@ def crear_app(s: Servicios, on_startup=None, on_shutdown=None) -> FastAPI:
             return _error(503, f"No se pudo atender la solicitud: {type(exc).__name__}")
 
     @app.post("/v1/observaciones", response_model=RespuestaObservaciones, tags=["servicio"],
+              responses=RESPUESTAS_ERROR,
               openapi_extra={"requestBody": {"content": {"application/json": {"example": EJEMPLO_OBSERVACION}}}})
     async def observaciones(request: Request):
         payload = None
@@ -117,7 +125,8 @@ def crear_app(s: Servicios, on_startup=None, on_shutdown=None) -> FastAPI:
             return _error(503, f"No se pudo registrar la observación: {type(exc).__name__}")
 
     # -------------------------------------------------------------------------------------- administración
-    @app.post("/admin/reentrenar", status_code=202, response_model=RespuestaReentrenarInicio, tags=["admin"])
+    @app.post("/admin/reentrenar", status_code=202, response_model=RespuestaReentrenarInicio, tags=["admin"],
+              responses={503: {"description": "No se puede iniciar el reentrenamiento"}})
     def reentrenar(_: Any = Body(None)):
         rid = f"reentrenamiento_{uuid.uuid4().hex[:12]}"
         try:
@@ -142,7 +151,8 @@ def crear_app(s: Servicios, on_startup=None, on_shutdown=None) -> FastAPI:
         return s.gestor.actual().version if s.gestor.cargado else None
 
     @app.get("/admin/reentrenar/{rid}", response_model=RespuestaReentrenarEstado,
-             response_model_exclude_none=True, tags=["admin"])
+             response_model_exclude_none=True, tags=["admin"],
+             responses={404: {"description": "Id de ejecución desconocido"}})
     def estado_reentrenamiento(rid: str):
         try:
             fila = s.repo.obtener_reentrenamiento(rid)
