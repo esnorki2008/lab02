@@ -1,0 +1,8 @@
+# Dependencias del dominio (modelo, datos, MLflow cliente). Se instalan en la API y en Airflow.
+pandas==2.2.3
+numpy==1.26.4
+lightgbm==4.5.0
+joblib==1.4.2
+PyYAML==6.0.2
+mlflow-skinny==2.19.0
+requests==2.32.3

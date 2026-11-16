@@ -1,0 +1,6 @@
+# Se instala en un entorno virtual aislado (/opt/novamercado-venv) dentro de la imagen de Airflow:
+# las tareas del DAG corren ahí con @task.external_python, sin mezclar dependencias con Airflow
+# (p. ej. mlflow-skinny exige packaging<25 y Airflow 3.1 exige packaging>=25).
+-r base.txt
+SQLAlchemy==2.0.36
+psycopg2-binary==2.9.10

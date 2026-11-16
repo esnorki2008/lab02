@@ -1,0 +1,28 @@
+        t         | count 
+------------------+-------
+ solicitudes      |   614
+ predicciones     |  3480
+ correcciones     |   269
+ observaciones    |  3201
+ reentrenamientos |     4
+ historico_ventas | 83052
+(6 rows)
+
+
+           regla            |  accion  | count 
+----------------------------+----------+-------
+ ventas_formato             | reparar  |    62
+ familia_formato            | reparar  |    34
+ promocion_formato          | reparar  |    26
+ fecha_formato              | reparar  |    20
+ ventas_negativa            | advertir |    20
+ familia_repetida_conflicto | advertir |    18
+ campo_renombrado           | reparar  |    17
+ familias_incompletas       | advertir |    16
+ promocion_negativa         | advertir |    15
+ tienda_formato             | reparar  |    15
+ promocion_decimal          | advertir |    13
+ familia_aproximada         | advertir |     8
+ fecha_ambigua              | advertir |     5
+(13 rows)
+

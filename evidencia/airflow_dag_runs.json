@@ -1,0 +1,46 @@
+[
+  {
+    "dag_run_id": "reentrenamiento_5a5208f267f9",
+    "estado": "success",
+    "inicio": "2026-11-16T03:29:04.879810Z",
+    "fin": "2026-11-16T03:29:16.065016Z",
+    "tareas": {
+      "verificar": "success",
+      "entrenar_evaluar_promover": "success",
+      "publicar_resultado": "success"
+    }
+  },
+  {
+    "dag_run_id": "reentrenamiento_edbb1f1e30ab",
+    "estado": "success",
+    "inicio": "2026-11-16T03:29:32.106606Z",
+    "fin": "2026-11-16T03:29:43.273757Z",
+    "tareas": {
+      "verificar": "success",
+      "entrenar_evaluar_promover": "success",
+      "publicar_resultado": "success"
+    }
+  },
+  {
+    "dag_run_id": "reentrenamiento_f8dbf63f05bf",
+    "estado": "success",
+    "inicio": "2026-11-16T03:29:58.065594Z",
+    "fin": "2026-11-16T03:30:07.346615Z",
+    "tareas": {
+      "verificar": "success",
+      "entrenar_evaluar_promover": "success",
+      "publicar_resultado": "success"
+    }
+  },
+  {
+    "dag_run_id": "reentrenamiento_9f85bf606370",
+    "estado": "failed",
+    "inicio": "2026-11-16T03:30:42.663029Z",
+    "fin": "2026-11-16T03:31:06.891772Z",
+    "tareas": {
+      "verificar": "failed",
+      "entrenar_evaluar_promover": "upstream_failed",
+      "publicar_resultado": "upstream_failed"
+    }
+  }
+]

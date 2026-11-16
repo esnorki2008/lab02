@@ -1,0 +1,135 @@
+{
+  "solicitud": {
+    "tienda_id": 1,
+    "fecha": "2026-03-01",
+    "familias": [
+      {
+        "familia_id": "ABARROTES",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "bebe",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "bebidas",
+        "en_promocion": 4
+      },
+      {
+        "familia_id": "carnes",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "cuidado_personal",
+        "en_promocion": 1
+      },
+      {
+        "familia_id": "frutas_verduras",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "lacteos",
+        "en_promocion": 5
+      },
+      {
+        "familia_id": "licores",
+        "en_promocion": 4
+      },
+      {
+        "familia_id": "limpieza",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "mascotas",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "panaderia",
+        "en_promocion": 0
+      },
+      {
+        "familia_id": "snacks",
+        "en_promocion": 0
+      }
+    ]
+  },
+  "status": 200,
+  "respuesta": {
+    "tienda_id": 1,
+    "fecha": "2026-03-01",
+    "version_modelo": "1",
+    "predicciones": [
+      {
+        "familia_id": "abarrotes",
+        "venta_esperada": 790.34,
+        "cantidad_sugerida": 953
+      },
+      {
+        "familia_id": "bebe",
+        "venta_esperada": 93.88,
+        "cantidad_sugerida": 119
+      },
+      {
+        "familia_id": "bebidas",
+        "venta_esperada": 965.08,
+        "cantidad_sugerida": 1166
+      },
+      {
+        "familia_id": "carnes",
+        "venta_esperada": 387.86,
+        "cantidad_sugerida": 370
+      },
+      {
+        "familia_id": "cuidado_personal",
+        "venta_esperada": 301.68,
+        "cantidad_sugerida": 392
+      },
+      {
+        "familia_id": "frutas_verduras",
+        "venta_esperada": 425.46,
+        "cantidad_sugerida": 386
+      },
+      {
+        "familia_id": "lacteos",
+        "venta_esperada": 433.58,
+        "cantidad_sugerida": 415
+      },
+      {
+        "familia_id": "licores",
+        "venta_esperada": 149.62,
+        "cantidad_sugerida": 215
+      },
+      {
+        "familia_id": "limpieza",
+        "venta_esperada": 316.66,
+        "cantidad_sugerida": 413
+      },
+      {
+        "familia_id": "mascotas",
+        "venta_esperada": 71.32,
+        "cantidad_sugerida": 89
+      },
+      {
+        "familia_id": "panaderia",
+        "venta_esperada": 461.67,
+        "cantidad_sugerida": 388
+      },
+      {
+        "familia_id": "snacks",
+        "venta_esperada": 358.41,
+        "cantidad_sugerida": 412
+      }
+    ],
+    "calidad": {
+      "estado": "corregido",
+      "observaciones": [
+        {
+          "campo": "familias[0].familia_id",
+          "accion": "reparar",
+          "detalle": "'ABARROTES' se interpretó como 'abarrotes'",
+          "regla": "familia_formato"
+        }
+      ]
+    }
+  }
+}

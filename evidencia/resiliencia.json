@@ -1,0 +1,88 @@
+{
+  "inicio": {
+    "health": {
+      "estado": "ok",
+      "componentes": {
+        "base_de_datos": "ok",
+        "mlflow": "ok",
+        "airflow": "ok",
+        "modelo": "ok"
+      },
+      "version_modelo": "2"
+    },
+    "modelo": {
+      "nombre": "novamercado-ventas",
+      "alias": "champion",
+      "version": "2"
+    }
+  },
+  "mlflow_detenido": {
+    "segundos_hasta_degradado": 7.8,
+    "health": {
+      "estado": "degradado",
+      "motivo": "mlflow no disponible (ConnectionError)",
+      "componentes": {
+        "base_de_datos": "ok",
+        "mlflow": "no_disponible",
+        "airflow": "ok",
+        "modelo": "ok"
+      },
+      "version_modelo": "2"
+    },
+    "prediccion_status": 200,
+    "prediccion_version": "2"
+  },
+  "reentrenamiento_sin_mlflow": {
+    "id": "reentrenamiento_9f85bf606370",
+    "estado": {
+      "estado": "fallido",
+      "promovido": false,
+      "version": "2",
+      "motivo": "Falló la tarea 'verificar': Process returned non-zero exit status 1.\nHTTPConnectionPool(host='mlflow', port=5000): Max retries exceeded with url: /health (Caused by NameResolutionError(\"HTTPConnection(host='mlflow', port=5000): Failed to resolve 'mlflow' ([Errno -5] No address associated with hostname)\")); el modelo vigente no cambió",
+      "id": "reentrenamiento_9f85bf606370",
+      "iniciado_en": "2026-11-16 03:30:42.228517+00:00",
+      "terminado_en": "2026-11-16 03:31:03.564805+00:00"
+    },
+    "modelo_despues": {
+      "nombre": "novamercado-ventas",
+      "alias": "champion",
+      "version": "2"
+    }
+  },
+  "api_reiniciada_sin_mlflow": {
+    "segundos_hasta_modelo": 2.0,
+    "modelo": {
+      "nombre": "novamercado-ventas",
+      "alias": "champion",
+      "version": "2"
+    },
+    "prediccion_status": 200
+  },
+  "mlflow_regresa": {
+    "segundos_hasta_ok": 6.0,
+    "health": {
+      "estado": "ok",
+      "componentes": {
+        "base_de_datos": "ok",
+        "mlflow": "ok",
+        "airflow": "ok",
+        "modelo": "ok"
+      },
+      "version_modelo": "2"
+    }
+  },
+  "reinicio_sin_borrar_volumenes": {
+    "segundos_hasta_ok": 24.6,
+    "modelo": {
+      "nombre": "novamercado-ventas",
+      "alias": "champion",
+      "version": "2"
+    },
+    "version_antes": "2",
+    "reenvio_observacion_registros_guardados": 0,
+    "log_arranque": [
+      "arranque-1  | 2026-11-16 03:31:32,418 INFO novamercado.arranque: Datos publicados ya cargados (mismo sha256); no se recargan",
+      "arranque-1  | 2026-11-16 03:31:33,940 INFO novamercado.arranque: Ya existe modelo vigente (versión 2); no se entrena"
+    ]
+  }
+}

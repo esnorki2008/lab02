@@ -1,0 +1,346 @@
+{
+  "experimento": {
+    "experiment": {
+      "experiment_id": "1",
+      "name": "novamercado-pronostico",
+      "artifact_location": "mlflow-artifacts:/1",
+      "lifecycle_stage": "active",
+      "last_update_time": 1794799712825,
+      "creation_time": 1794799712825
+    }
+  },
+  "runs": [
+    {
+      "run_id": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "nombre": "arranque-2026-02-28",
+      "estado": "FINISHED",
+      "padre": null,
+      "decision": "promovido",
+      "version_registrada": "1",
+      "origen": "arranque",
+      "fin_datos": "2026-02-28",
+      "metricas": {
+        "candidato.costo": 44823.8,
+        "candidato.costo_por_dia_serie": 26.680833333333336,
+        "candidato.wape": 0.1774559239060288,
+        "candidato.mae": 38.41519364166212,
+        "candidato.rmse": 71.55575725796703,
+        "candidato.sesgo": -0.016932734927879826,
+        "candidato.n": 1680.0
+      }
+    },
+    {
+      "run_id": "6e44bde550ad4a9cbcf79c33ccf155e6",
+      "nombre": "candidato-baseline",
+      "estado": "FINISHED",
+      "padre": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 54920.5,
+        "eval.costo_por_dia_serie": 32.69077380952381,
+        "eval.wape": 0.22346583003833018,
+        "eval.mae": 48.37529761904762,
+        "eval.rmse": 92.91050881794547,
+        "eval.sesgo": -0.0323469404589724,
+        "eval.n": 1680.0
+      }
+    },
+    {
+      "run_id": "92e319d96d434562a23dc55a24dc6ae7",
+      "nombre": "candidato-lgbm",
+      "estado": "FINISHED",
+      "padre": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 44823.8,
+        "eval.costo_por_dia_serie": 26.680833333333336,
+        "eval.wape": 0.1774559239060288,
+        "eval.mae": 38.41519364166212,
+        "eval.rmse": 71.55575725796703,
+        "eval.sesgo": -0.016932734927879826,
+        "eval.n": 1680.0
+      }
+    },
+    {
+      "run_id": "0f2fdcb701264671a3ea354c83c8f594",
+      "nombre": "airflow-2026-03-06",
+      "estado": "FINISHED",
+      "padre": null,
+      "decision": "no_promovido",
+      "version_registrada": null,
+      "origen": "airflow",
+      "fin_datos": "2026-03-06",
+      "metricas": {
+        "vigente.costo": 16707.0,
+        "vigente.costo_por_dia_serie": 25.982892690513218,
+        "vigente.wape": 0.181902371033397,
+        "vigente.mae": 38.14999105086898,
+        "vigente.rmse": 62.486961925687766,
+        "vigente.sesgo": 0.06697420959768301,
+        "vigente.n": 643.0,
+        "candidato.costo": 16656.7,
+        "candidato.costo_por_dia_serie": 25.904665629860034,
+        "candidato.wape": 0.18238039748693974,
+        "candidato.mae": 38.250246505600714,
+        "candidato.rmse": 64.02922628126365,
+        "candidato.sesgo": 0.06891905639977214,
+        "candidato.n": 643.0
+      }
+    },
+    {
+      "run_id": "4aadd7780d914ff19221db2862f7b3d9",
+      "nombre": "candidato-baseline",
+      "estado": "FINISHED",
+      "padre": "0f2fdcb701264671a3ea354c83c8f594",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 19701.0,
+        "eval.costo_por_dia_serie": 30.63919129082426,
+        "eval.wape": 0.21096733528604797,
+        "eval.mae": 44.2457231726283,
+        "eval.rmse": 75.26490025206533,
+        "eval.sesgo": 0.04237143598680064,
+        "eval.n": 643.0
+      }
+    },
+    {
+      "run_id": "746641d15f8b4b1eb609495a3f855054",
+      "nombre": "candidato-lgbm",
+      "estado": "FINISHED",
+      "padre": "0f2fdcb701264671a3ea354c83c8f594",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 16656.7,
+        "eval.costo_por_dia_serie": 25.904665629860034,
+        "eval.wape": 0.18238039748693974,
+        "eval.mae": 38.250246505600714,
+        "eval.rmse": 64.02922628126365,
+        "eval.sesgo": 0.06891905639977214,
+        "eval.n": 643.0
+      }
+    },
+    {
+      "run_id": "33c8725f1858440a8772d5da081d0e70",
+      "nombre": "airflow-2026-03-13",
+      "estado": "FINISHED",
+      "padre": null,
+      "decision": "no_promovido",
+      "version_registrada": null,
+      "origen": "airflow",
+      "fin_datos": "2026-03-13",
+      "metricas": {
+        "vigente.costo": 39772.3,
+        "vigente.costo_por_dia_serie": 28.51060931899642,
+        "vigente.wape": 0.19128083662298953,
+        "vigente.mae": 41.04996449032795,
+        "vigente.rmse": 70.88420629101054,
+        "vigente.sesgo": 0.038209422688682146,
+        "vigente.n": 1395.0,
+        "candidato.costo": 39399.4,
+        "candidato.costo_por_dia_serie": 28.243297491039428,
+        "candidato.wape": 0.19058330807370424,
+        "candidato.mae": 40.900270863487606,
+        "candidato.rmse": 71.17754970647758,
+        "candidato.sesgo": 0.040979975617915464,
+        "candidato.n": 1395.0
+      }
+    },
+    {
+      "run_id": "a08356db07b9427cb6a67573a9c27fca",
+      "nombre": "candidato-baseline",
+      "estado": "FINISHED",
+      "padre": "33c8725f1858440a8772d5da081d0e70",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 49761.0,
+        "eval.costo_por_dia_serie": 35.670967741935485,
+        "eval.wape": 0.23826972860125262,
+        "eval.mae": 51.13405017921147,
+        "eval.rmse": 89.85253888192851,
+        "eval.sesgo": 0.03457258176757133,
+        "eval.n": 1395.0
+      }
+    },
+    {
+      "run_id": "d8f4fe76329147d5b29dfd1367ddb0a5",
+      "nombre": "candidato-lgbm",
+      "estado": "FINISHED",
+      "padre": "33c8725f1858440a8772d5da081d0e70",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 39399.4,
+        "eval.costo_por_dia_serie": 28.243297491039428,
+        "eval.wape": 0.19058330807370424,
+        "eval.mae": 40.900270863487606,
+        "eval.rmse": 71.17754970647758,
+        "eval.sesgo": 0.040979975617915464,
+        "eval.n": 1395.0
+      }
+    },
+    {
+      "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+      "nombre": "airflow-2026-03-20",
+      "estado": "FINISHED",
+      "padre": null,
+      "decision": "promovido",
+      "version_registrada": "2",
+      "origen": "airflow",
+      "fin_datos": "2026-03-20",
+      "metricas": {
+        "vigente.costo": 49579.899999999994,
+        "vigente.costo_por_dia_serie": 31.22159949622166,
+        "vigente.wape": 0.20056447297624552,
+        "vigente.mae": 43.811465140989895,
+        "vigente.rmse": 81.90866600886034,
+        "vigente.sesgo": 0.006690651176354676,
+        "vigente.n": 1588.0,
+        "candidato.costo": 48842.1,
+        "candidato.costo_por_dia_serie": 30.75698992443325,
+        "candidato.wape": 0.20016111348089854,
+        "candidato.mae": 43.72335496770026,
+        "candidato.rmse": 81.76143526233203,
+        "candidato.sesgo": 0.00673106935925303,
+        "candidato.n": 1588.0
+      }
+    },
+    {
+      "run_id": "a867c1117fcf4539be0b55a9878a7f3e",
+      "nombre": "candidato-baseline",
+      "estado": "FINISHED",
+      "padre": "f85d08393b034e4c93f4aff8dc5c227b",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 60700.8,
+        "eval.costo_por_dia_serie": 38.224685138539044,
+        "eval.wape": 0.25720677998024316,
+        "eval.mae": 56.18445633921075,
+        "eval.rmse": 104.78810969420316,
+        "eval.sesgo": -0.006173773749533949,
+        "eval.n": 1588.0
+      }
+    },
+    {
+      "run_id": "fa8b91e2069f41b799781a9657169bbc",
+      "nombre": "candidato-lgbm",
+      "estado": "FINISHED",
+      "padre": "f85d08393b034e4c93f4aff8dc5c227b",
+      "decision": null,
+      "version_registrada": null,
+      "origen": null,
+      "fin_datos": null,
+      "metricas": {
+        "eval.costo": 48842.1,
+        "eval.costo_por_dia_serie": 30.75698992443325,
+        "eval.wape": 0.20016111348089854,
+        "eval.mae": 43.72335496770026,
+        "eval.rmse": 81.76143526233203,
+        "eval.sesgo": 0.00673106935925303,
+        "eval.n": 1588.0
+      }
+    }
+  ],
+  "versiones": [
+    {
+      "name": "novamercado-ventas",
+      "version": "2",
+      "creation_timestamp": 1794799805194,
+      "last_updated_timestamp": 1794799805209,
+      "current_stage": "None",
+      "description": "lgbm; datos hasta 2026-03-20; costo en evaluación 48842.1",
+      "source": "mlflow-artifacts:/1/f85d08393b034e4c93f4aff8dc5c227b/artifacts/modelo",
+      "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+      "status": "READY",
+      "tags": [
+        {
+          "key": "origen",
+          "value": "airflow"
+        },
+        {
+          "key": "fin_entrenamiento",
+          "value": "2026-03-20"
+        }
+      ],
+      "run_link": ""
+    },
+    {
+      "name": "novamercado-ventas",
+      "version": "1",
+      "creation_timestamp": 1794799713196,
+      "last_updated_timestamp": 1794799713220,
+      "current_stage": "None",
+      "description": "lgbm; datos hasta 2026-02-28; costo en evaluación 44823.8",
+      "source": "mlflow-artifacts:/1/5b3fdb77fb924e8d8c3df4b4a72c26f4/artifacts/modelo",
+      "run_id": "5b3fdb77fb924e8d8c3df4b4a72c26f4",
+      "status": "READY",
+      "tags": [
+        {
+          "key": "origen",
+          "value": "arranque"
+        },
+        {
+          "key": "fin_entrenamiento",
+          "value": "2026-02-28"
+        }
+      ],
+      "run_link": ""
+    }
+  ],
+  "modelo_registrado": {
+    "registered_model": {
+      "name": "novamercado-ventas",
+      "creation_timestamp": 1794799713167,
+      "last_updated_timestamp": 1794799805194,
+      "latest_versions": [
+        {
+          "name": "novamercado-ventas",
+          "version": "2",
+          "creation_timestamp": 1794799805194,
+          "last_updated_timestamp": 1794799805209,
+          "current_stage": "None",
+          "description": "lgbm; datos hasta 2026-03-20; costo en evaluación 48842.1",
+          "source": "mlflow-artifacts:/1/f85d08393b034e4c93f4aff8dc5c227b/artifacts/modelo",
+          "run_id": "f85d08393b034e4c93f4aff8dc5c227b",
+          "status": "READY",
+          "tags": [
+            {
+              "key": "origen",
+              "value": "airflow"
+            },
+            {
+              "key": "fin_entrenamiento",
+              "value": "2026-03-20"
+            }
+          ],
+          "run_link": ""
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "champion",
+          "version": "2"
+        }
+      ]
+    }
+  }
+}

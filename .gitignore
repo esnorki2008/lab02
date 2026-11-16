@@ -1,0 +1,70 @@
+# =============================================================================
+# Condiciones de entrega (Lab 2): los DATOS y las CREDENCIALES no forman parte
+# del repositorio. Se versiona código, DAGs, Docker, configuración, pruebas,
+# documentación y evidencia (evidencia/).
+# =============================================================================
+
+# --- Datos publicados (se colocan en raw_data/, ver README §2) ---------------
+/raw_data/
+/datos/
+/data/
+*.zip
+# por si se copian fuera de raw_data/ por error
+tiendas.csv
+familias.csv
+historico_ventas.csv
+feriados.csv
+costos.csv
+catalogo_errores.md
+
+# --- Credenciales ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+simple_auth_manager_passwords.json*
+simple_auth_passwords.json
+*.pem
+*.key
+
+# --- Modelos y artefactos locales (viven en MLflow / volúmenes de Docker) ----
+/cache/
+mlruns/
+mlartifacts/
+*.joblib
+*.pkl
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Airflow / Docker locales -----------------------------------------------
+logs/
+airflow.cfg
+airflow-webserver.pid
+standalone_admin_password.txt
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# --- Python / herramientas -----------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.tmp/
+.ipynb_checkpoints/
+
+# --- Agentes / SO / editores ---------------------------------------------------
+.claude/settings.local.json
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp

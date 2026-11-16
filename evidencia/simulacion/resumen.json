@@ -1,0 +1,168 @@
+{
+  "periodo": [
+    "2026-03-01",
+    "2026-03-28"
+  ],
+  "dias": 28,
+  "cambio_de_demanda_desde": "2026-03-09",
+  "costo_servicio": 91062,
+  "costo_venta_esperada_sin_ajuste": 122004,
+  "costo_ingenuo_lag7": 177465,
+  "wape": 0.1906,
+  "costo_por_semana": {
+    "9": 3859,
+    "10": 19256,
+    "11": 26665,
+    "12": 24676,
+    "13": 16604
+  },
+  "solicitudes_por_status": [
+    {
+      "endpoint": "observaciones",
+      "status": 200,
+      "n": 296
+    },
+    {
+      "endpoint": "prediccion",
+      "status": 200,
+      "n": 261
+    },
+    {
+      "endpoint": "prediccion",
+      "status": 422,
+      "n": 19
+    }
+  ],
+  "calidad_por_defecto": [
+    {
+      "defecto": "campo_renombrado",
+      "status": 200,
+      "estado": "corregido",
+      "n": 16
+    },
+    {
+      "defecto": "faltan_familias",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 13
+    },
+    {
+      "defecto": "familia_mayus",
+      "status": 200,
+      "estado": "corregido",
+      "n": 17
+    },
+    {
+      "defecto": "familia_typo",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 8
+    },
+    {
+      "defecto": "fecha_formato",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 5
+    },
+    {
+      "defecto": "fecha_formato",
+      "status": 200,
+      "estado": "corregido",
+      "n": 6
+    },
+    {
+      "defecto": "fecha_hora",
+      "status": 200,
+      "estado": "corregido",
+      "n": 13
+    },
+    {
+      "defecto": "ninguno",
+      "status": 200,
+      "estado": "ok",
+      "n": 100
+    },
+    {
+      "defecto": "promo_decimal",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 13
+    },
+    {
+      "defecto": "promo_negativa",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 15
+    },
+    {
+      "defecto": "promo_texto",
+      "status": 200,
+      "estado": "corregido",
+      "n": 24
+    },
+    {
+      "defecto": "repetida",
+      "status": 200,
+      "estado": "advertencia",
+      "n": 17
+    },
+    {
+      "defecto": "tienda_desconocida",
+      "status": 422,
+      "estado": NaN,
+      "n": 19
+    },
+    {
+      "defecto": "tienda_texto",
+      "status": 200,
+      "estado": "corregido",
+      "n": 14
+    }
+  ],
+  "latencia_prediccion_ms_p50_p95": [
+    126.0,
+    184.05
+  ],
+  "versiones_usadas": {
+    "1": 2364,
+    "2": 840
+  },
+  "reentrenamientos": [
+    {
+      "estado": "exitoso",
+      "promovido": false,
+      "version": "1",
+      "motivo": "Costo en validación 16 657 vs 16 707 del vigente: no mejora al menos 1%",
+      "id": "reentrenamiento_5a5208f267f9",
+      "iniciado_en": "2026-11-16 03:29:04.458882+00:00",
+      "terminado_en": "2026-11-16 03:29:15.638467+00:00",
+      "segundos": 12.2,
+      "dia": "2026-03-07",
+      "segundos_hasta_api": 0.0
+    },
+    {
+      "estado": "exitoso",
+      "promovido": false,
+      "version": "1",
+      "motivo": "Costo en validación 39 399 vs 39 772 del vigente: no mejora al menos 1%",
+      "id": "reentrenamiento_edbb1f1e30ab",
+      "iniciado_en": "2026-11-16 03:29:31.926709+00:00",
+      "terminado_en": "2026-11-16 03:29:42.838067+00:00",
+      "segundos": 12.1,
+      "dia": "2026-03-14",
+      "segundos_hasta_api": 0.0
+    },
+    {
+      "estado": "exitoso",
+      "promovido": true,
+      "version": "2",
+      "motivo": "Costo en validación 48 842 vs 49 580 del vigente; promovida la versión 2",
+      "id": "reentrenamiento_f8dbf63f05bf",
+      "iniciado_en": "2026-11-16 03:29:57.584457+00:00",
+      "terminado_en": "2026-11-16 03:30:06.868054+00:00",
+      "segundos": 12.1,
+      "dia": "2026-03-21",
+      "segundos_hasta_api": 0.0
+    }
+  ]
+}

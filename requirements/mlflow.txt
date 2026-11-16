@@ -1,0 +1,5 @@
+# Servidor de MLflow (imagen novamercado-mlflow). Dependencias críticas fijadas.
+mlflow==2.19.0
+SQLAlchemy==2.0.36
+alembic==1.14.0
+gunicorn==23.0.0

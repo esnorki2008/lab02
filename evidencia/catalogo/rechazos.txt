@@ -1,0 +1,3 @@
+{"detail":"Tienda desconocida: la tienda 42 no existe en el catálogo","regla":"tienda_desconocida","campo":"tienda_id"} -> 422
+{"detail":"'2026-02-30' no es una fecha válida (formato esperado AAAA-MM-DD)","regla":"fecha_invalida","campo":"fecha"} -> 422
+{"detail":"Falta la lista 'familias' o viene vacía","regla":"lista_faltante","campo":"familias"} -> 422

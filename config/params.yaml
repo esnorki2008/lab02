@@ -1,0 +1,82 @@
+# =============================================================================
+# Configuración versionada del producto NovaMercado.
+# Un cambio de negocio (costos de validación, criterio de reemplazo, tolerancias de
+# limpieza) se hace aquí, nunca en el código. Las credenciales y URLs de servicios
+# vienen de variables de entorno (.env), no de este archivo.
+# =============================================================================
+
+datos:
+  # Carpeta donde se colocan los archivos publicados (se busca recursivamente; no se versiona).
+  carpeta: raw_data
+  archivos:
+    tiendas: tiendas.csv
+    familias: familias.csv
+    historico: historico_ventas.csv
+    feriados: feriados.csv
+    costos: costos.csv
+
+# -----------------------------------------------------------------------------
+# Defensa del contrato (ver DECISIONES.md §2 y novamercado/limpieza/politicas.py)
+# -----------------------------------------------------------------------------
+limpieza:
+  # Similitud mínima (difflib) para aceptar un nombre de familia con error de escritura.
+  similitud_minima_familia: 0.80
+  # Días después del último feriado publicado en que aún se acepta una fecha (con advertencia).
+  tolerancia_dias_sin_calendario: 45
+  promocion_factor_atipico: 3.0     # en_promocion > factor × máximo histórico de la familia -> se acota
+  ventas_factor_atipico: 8.0        # ventas > factor × p95 de la serie (último año) -> se guarda marcada
+  ventas_minimo_atipico: 50         # umbral mínimo en unidades para marcar atípicos
+  dias_mediana_promocion: 28        # ventana para imputar en_promocion faltante
+  dias_maximos_sin_datos: 7         # más días sin ventas conocidas de la tienda -> advertencia
+
+# -----------------------------------------------------------------------------
+# Modelo
+# -----------------------------------------------------------------------------
+modelo:
+  nombre_registrado: novamercado-ventas
+  alias: champion
+  experimento: novamercado-pronostico
+  candidatos: [baseline, lgbm]
+  historia_features_dias: 400       # días de historia que se leen para construir features
+  ventana_entrenamiento_dias: 730   # filas de entrenamiento: últimos N días con datos
+  dias_evaluacion: 14               # ventana máxima de evaluación fuera de muestra (días más recientes)
+  dias_calibracion: 28              # ventana previa para calibrar la cantidad sugerida
+  dias_minimos_evaluacion: 5        # datos nuevos mínimos para comparar contra el vigente
+  frac_rezagos_faltantes: 0.10      # entrenar con rezagos recientes ocultos (observación no llegó)
+  lgbm:
+    n_estimators: 500
+    learning_rate: 0.04
+    num_leaves: 31
+    min_child_samples: 30
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.8
+    reg_lambda: 1.0
+    num_threads: 4
+    seed: 11
+    verbose: -1
+
+# -----------------------------------------------------------------------------
+# Cantidad sugerida (newsvendor). Nivel de servicio por familia = cf / (cf + cs)
+# con los costos de costos.csv; el multiplicador se calibra en validación.
+# -----------------------------------------------------------------------------
+cantidad_sugerida:
+  multiplicador_min: 0.5
+  multiplicador_max: 3.0
+  min_puntos_familia: 30            # con menos puntos se usa el multiplicador global
+
+# -----------------------------------------------------------------------------
+# Criterio de reemplazo del modelo vigente (champion/challenger)
+# -----------------------------------------------------------------------------
+reemplazo:
+  mejora_minima_costo: 0.01         # el nuevo debe costar >= 1 % menos que el vigente
+  max_degradacion_wape: 0.05        # y su WAPE no puede empeorar más de 5 % relativo
+
+# -----------------------------------------------------------------------------
+# Operación del servicio
+# -----------------------------------------------------------------------------
+servicio:
+  intervalo_recarga_modelo_s: 20    # cada cuánto se consulta el alias en MLflow
+  timeout_dependencias_s: 2.0       # timeout de los chequeos de /health
+  cache_health_s: 5                 # resultado de /health se reutiliza unos segundos
+  dag_reentrenamiento: novamercado_reentrenamiento

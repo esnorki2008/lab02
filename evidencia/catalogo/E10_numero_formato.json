@@ -1,0 +1,78 @@
+{
+  "endpoint": "POST /v1/observaciones",
+  "status": 200,
+  "solicitud": {
+    "tienda_id": 5,
+    "fecha": "2025-11-17",
+    "ventas": [
+      {
+        "familia_id": "abarrotes",
+        "ventas": 994
+      },
+      {
+        "familia_id": "bebe",
+        "ventas": "50,0"
+      },
+      {
+        "familia_id": "bebidas",
+        "ventas": "1,292"
+      },
+      {
+        "familia_id": "carnes",
+        "ventas": 182
+      },
+      {
+        "familia_id": "cuidado_personal",
+        "ventas": 118
+      },
+      {
+        "familia_id": "frutas_verduras",
+        "ventas": 410
+      },
+      {
+        "familia_id": "lacteos",
+        "ventas": 358
+      },
+      {
+        "familia_id": "licores",
+        "ventas": 85
+      },
+      {
+        "familia_id": "limpieza",
+        "ventas": 202
+      },
+      {
+        "familia_id": "mascotas",
+        "ventas": 63
+      },
+      {
+        "familia_id": "panaderia",
+        "ventas": 213
+      },
+      {
+        "familia_id": "snacks",
+        "ventas": 386
+      }
+    ]
+  },
+  "respuesta": {
+    "registros_guardados": 0,
+    "calidad": {
+      "estado": "corregido",
+      "observaciones": [
+        {
+          "campo": "ventas[1].ventas",
+          "accion": "reparar",
+          "detalle": "'50,0' se interpretó como 50",
+          "regla": "ventas_formato"
+        },
+        {
+          "campo": "ventas[2].ventas",
+          "accion": "reparar",
+          "detalle": "'1,292' se interpretó como 1292",
+          "regla": "ventas_formato"
+        }
+      ]
+    }
+  }
+}
